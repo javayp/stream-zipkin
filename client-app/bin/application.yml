@@ -1,0 +1,32 @@
+server:
+  port: 9090
+ 
+logging:
+  level:
+    org.springframework.cloud.sleuth: debug
+
+zipkin:
+  collector:
+    rabbitmq:
+      queue: zipkin 
+      addresses: localhost:5672
+      username: guest
+      password: guest
+spring:
+  application:
+    name: client-app
+    
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+  
+  sleuth:
+    sampler:
+      percentage: 1.0
+   
+  zipkin:
+    base-url: http://localhost:9411
+  
+
+  
